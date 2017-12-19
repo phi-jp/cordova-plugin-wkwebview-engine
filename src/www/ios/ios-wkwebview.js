@@ -23,7 +23,10 @@ var exec = require('cordova/exec');
 
 var WkWebKit = {
     allowsBackForwardNavigationGestures: function (allow) {
-        exec(null, null, 'CDVWKWebViewEngine', 'allowsBackForwardNavigationGestures', [allow]);
+        return exec(null, null, 'CDVWKWebViewEngine', 'allowsBackForwardNavigationGestures', [allow]);
+    },
+    allowsLinkPreview: function(allow) {
+        return exec(null, null, 'CDVWKWebViewEngine', 'allowsLinkPreview', [allow]);
     }
 };
 

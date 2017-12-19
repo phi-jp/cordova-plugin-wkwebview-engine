@@ -96,6 +96,23 @@ window.WkWebView.allowsBackForwardNavigationGestures(true)
 window.WkWebView.allowsBackForwardNavigationGestures(false)
 ```
 
+Enabling link preview(default: false)
+-----------
+
+In order to allow link preview(you can see preview when force touch on A tag), you can set the following
+preference in your 'config.xml':
+
+```xml
+<preference name="AllowLinkPreview" value="true" />
+```
+
+You can also set this preference dynamically from Javascript:
+
+```js
+window.WkWebView.allowsLinkPreview(true)
+window.WkWebView.allowsLinkPreview(false)
+```
+
 Limitations
 --------
 
