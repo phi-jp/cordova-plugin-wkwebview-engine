@@ -276,6 +276,8 @@ static void * KVOContext = &KVOContext;
     }
 
     wkWebView.allowsBackForwardNavigationGestures = [settings cordovaBoolSettingForKey:@"AllowBackForwardNavigationGestures" defaultValue:NO];
+    // allow link preview 
+    wkWebView.allowsLinkPreview = [settings cordovaBoolSettingForKey:@"AllowLinkPreview" defaultValue:NO];
 }
 
 - (void)updateWithInfo:(NSDictionary*)info
@@ -468,6 +470,17 @@ static void * KVOContext = &KVOContext;
 
     WKWebView* wkWebView = (WKWebView*)_engineWebView;
     wkWebView.allowsBackForwardNavigationGestures = [value boolValue];
+}
+
+- (void)allowsLinkPreview:(CDVInvokedUrlCommand*)command;
+{
+    id value = [command argumentAtIndex:0];
+    if (!([value isKindOfClass:[NSNumber class]])) {
+        value = [NSNumber numberWithBool:NO];
+    }
+
+    WKWebView* wkWebView = (WKWebView*)_engineWebView;
+    wkWebView.allowsLinkPreview = [value boolValue];
 }
 
 @end
